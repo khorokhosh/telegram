@@ -2,7 +2,7 @@ import pymysql
 
 class DbHelper:
     # 构造函数
-    def __init__(self, host='localhost', port=5586, user='root', password='root', database='tg_groups'):
+    def __init__(self, host='localhost', port=5586, user='tg_groups', password='XiFddh5bFRw473wK', database='tg_groups'):
          self.host = host
          self.user = user
          self.pwd = password
