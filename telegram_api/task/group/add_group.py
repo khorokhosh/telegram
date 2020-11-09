@@ -76,7 +76,7 @@ async def work(client):
 async def main():
   await asyncio.gather(
         work(TelegramClient('+86 137 8230 8818', 1848782, 'db242eb477ce069cb76d299f562adba2')),
-        # work(TelegramClient('+86 176 3001 3170', 1970209, '382e4d2d424a8b4dcd808e319de5ea6b')),
+        work(TelegramClient('+86 176 3001 3170', 1970209, '382e4d2d424a8b4dcd808e319de5ea6b')),
         work(TelegramClient('+86 173 3571 1659', 2482317, 'c7504e11a7826546dff493a2944984db')),
         work(TelegramClient('+86 158 3741 1100', 2174500, '9d9758505ba7a2ac24aee0a73b622c14')),
         work(TelegramClient('+86 131 0371 3118', 2436793, '814af6c036a72985b346c137cc0b23e5')),

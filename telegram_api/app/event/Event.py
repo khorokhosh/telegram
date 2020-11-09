@@ -13,7 +13,7 @@ phone = '+86 137 8230 8818'
 # api_hash = '382e4d2d424a8b4dcd808e319de5ea6b'
 # phone = '+86 176 3001 3170'
 client = TelegramClient(phone, api_id, api_hash)
-channel = ['https://t.me/onemore321','https://t.me/baidu6','https://t.me/hao12324','https://t.me/hao123mm','https://t.me/jianghai123','https://t.me/datesales']
+channel = ['https://t.me/onemore321','https://t.me/hao12324','https://t.me/hao123mm','https://t.me/jianghai123','https://t.me/datesales']
 
 #实例化一个redis
 redis_obj = Redis(host='localhost',port=6379,password='',decode_responses=True,charset='UTF-8', encoding='UTF-8')
@@ -21,14 +21,18 @@ redis_obj = Redis(host='localhost',port=6379,password='',decode_responses=True,c
 
 @client.on(events.NewMessage(chats=(channel)))
 async def normal_handler(event):
-    print("***************message**********************")
+    print("***************event**********************")
+    print(event)
+    # print("***************message**********************")
     # print(event.message)
-    event_msg = event.message
-    for item in event_msg.entities[1:-2]:
-        _url = item.url
-        print(_url)
+    print("***************text**********************")
+    print(event.raw_text)
+    # event_msg = event.message
+    # for item in event_msg.entities[1:-2]:
+    #     _url = item.url
+    #     print(_url)
         # 将url加入队列 判断值是否重复 Todo
-        redis_obj.lpush('tg_group_list',_url)
+        # redis_obj.lpush('tg_group_list',_url)
         # 判断url是否是群组而不是频道
     #     result = await client.get_entity(_url)
     #     if result is not None :
