@@ -16,8 +16,7 @@ client = TelegramClient(phone, api_id, api_hash)
 channel = ['https://t.me/onemore321','https://t.me/baidu6','https://t.me/hao12324','https://t.me/hao123mm','https://t.me/jianghai123','https://t.me/datesales']
 
 #实例化一个redis
-redis_obj = Redis(host='localhost',port=6379,password='h0BGS8nX&X',decode_responses=True,charset='UTF-8', encoding='UTF-8')
-
+redis_obj = Redis(host='localhost',port=6379,password='',decode_responses=True,charset='UTF-8', encoding='UTF-8')
 
 
 @client.on(events.NewMessage(chats=(channel)))

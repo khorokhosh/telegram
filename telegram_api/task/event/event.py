@@ -30,7 +30,7 @@ async def work(client, channel):
     async with client:
         @client.on(events.NewMessage(chats=(channel)))
         async def my_event_handler(event):
-            # print(event.text)
+            print(event.text)
             # 清洗数据并提取消息记录中的有效的链接
             result = filter_data(event.text)
             # 将数据转为json并写入内存
