@@ -42,7 +42,7 @@ async def work(client, channel):
 
 async def main():
     # 定义要监听的群信息 (不能监听同一个组,否则消息会重复,每个账号需要监听不同的组)
-    channel_1848782 = ['https://t.me/onemore321','https://t.me/idc1688','https://t.me/hao12324','https://t.me/datesales', 'https://t.me/dny8855', 'https://t.me/souqunba','https://t.me/jianghai123','https://t.me/soudu1']
+    channel_1848782 = ['https://t.me/onemore321','https://t.me/idc1688','https://t.me/hao12324','https://t.me/datesales', 'https://t.me/souqunba','https://t.me/jianghai123','https://t.me/soudu1']
     channel_1970209 = ['https://t.me/baidu6','https://t.me/hao123tm', 'https://t.me/hao123f', 'https://t.me/hao1234CN', 'https://t.me/hao1238']
     await asyncio.gather(
         work(TelegramClient('+86 137 8230 8818', 1848782, 'db242eb477ce069cb76d299f562adba2'), channel_1848782),
