@@ -6,13 +6,13 @@ import random, json
 import asyncio
 from my_db import DbHelper
 #实例化一个redis
-redis_obj = Redis(host='localhost',port=6379,password='h0BGS8nX&X',decode_responses=True,charset='UTF-8', encoding='UTF-8')
+redis_obj = Redis(host='localhost',port=6379,password='',decode_responses=True,charset='UTF-8', encoding='UTF-8')
 
 # 插入数据库操作
 def insertDb(item,falg=True,phone=None):
     # 实例化mysql
-    # db = DbHelper('localhost',3306,'root','root')
-    db = DbHelper()
+    db = DbHelper('localhost',3306,'root','root')
+    # db = DbHelper()
 
     # 查询是否存在
     if falg == True:
@@ -55,16 +55,17 @@ async def addGroupAction(client):
                                 # 加群动作
                                 update = await client(JoinChannelRequest(item['link']))
                                 # print(update.stringify())
-                                # print('加群成功')
+                                print('加群成功')
                                 # 将群信息写入加群成功的记录表
-                                insertDb(item,False,update.users[0].phone)
-                except:
-                    pass
-                # 循环间隔2-3分钟 以应对电报api请求频繁的限制
-                seconds = random.randint(120,180)
-                print(seconds)
-                await asyncio.sleep(seconds)
-                i += 1  
+                                # insertDb(item,False,update.users[0].phone)
+                except Exception as e:
+                    print(e)
+                else:
+                    # 循环间隔2-3分钟 以应对电报api请求频繁的限制
+                    seconds = random.randint(100,300)
+                    print(seconds)
+                    await asyncio.sleep(seconds)
+                    i += 1  
         else:
             print('end ========== 队列中没有数据')
 
