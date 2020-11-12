@@ -11,8 +11,8 @@ redis_obj = Redis(host='localhost',port=6379,password='h0BGS8nX&X',decode_respon
 # 插入数据库操作
 def insertDb(item,falg=True,phone=None):
     # 实例化mysql
-    db = DbHelper('localhost',3306,'root','root')
-    # db = DbHelper()
+    # db = DbHelper('localhost',3306,'root','root')
+    db = DbHelper()
 
     # 查询是否存在
     if falg == True:
