@@ -6,7 +6,7 @@ import random, json
 import asyncio
 from my_db import DbHelper
 #实例化一个redis
-redis_obj = Redis(host='localhost',port=6379,password='',decode_responses=True,charset='UTF-8', encoding='UTF-8')
+redis_obj = Redis(host='localhost',port=6379,password='h0BGS8nX&X',decode_responses=True,charset='UTF-8', encoding='UTF-8')
 
 # 插入数据库操作
 def insertDb(item,falg=True,phone=None):
