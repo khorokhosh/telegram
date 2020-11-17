@@ -2,7 +2,7 @@ import telethon
 from telethon import TelegramClient
 from telethon.tl.functions.channels import JoinChannelRequest
 from redis import Redis
-import random, json
+import random, json, pymysql
 import asyncio
 from my_db import DbHelper
 #实例化一个redis
@@ -19,14 +19,14 @@ def insertDb(item,falg=True,phone=None):
         sql = "select * from tg_group_bot where link='" + item['link'] + "'"
         result = db.fetchOne(sql)
         if result == None:
-            res = db.executeSql("insert into tg_group_bot (group_name,link) values('" + item['title'] + "','" + item['link'] + "')")
+            res = db.executeSql("insert into tg_group_bot (group_name,link) values('" + pymysql.escape_string(item['title']) + "','" + pymysql.escape_string(item['link']) + "')")
             if res == False:
                 print('数据写入失败')
     else:
         sql = "select * from tg_group_success where link='" + item['link'] + "'"
         result = db.fetchOne(sql)
         if result == None:
-            res = db.executeSql("insert into tg_group_success (group_name,link,phone) values('" + item['title'] + "','" + item['link'] + "','" + phone + "')")
+            res = db.executeSql("insert into tg_group_success (group_name,link,phone) values('" + pymysql.escape_string(item['title']) + "','" + pymysql.escape_string(item['link']) + "','" + phone + "')")
             if res == False:
                 print('数据写入失败')
 
