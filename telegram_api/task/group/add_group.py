@@ -6,7 +6,7 @@ import random, json, pymysql
 import asyncio
 from my_db import DbHelper
 #实例化一个redis
-redis_obj = Redis(host='localhost',port=6379,password='h0BGS8nX&X',decode_responses=True,charset='UTF-8', encoding='UTF-8')
+redis_obj = Redis(host='213.176.60.134',port=6379,password='h0BGS8nX&X',decode_responses=True,charset='UTF-8', encoding='UTF-8')
 
 # 插入数据库操作
 def insertDb(item,falg=True,phone=None):
@@ -60,6 +60,7 @@ async def addGroupAction(client):
                                 # insertDb(item,False,update.users[0].phone)
                 except Exception as e:
                     print(e)
+                    await asyncio.sleep(e.seconds)
                 else:
                     # 循环间隔2-3分钟 以应对电报api请求频繁的限制
                     seconds = random.randint(100,300)
