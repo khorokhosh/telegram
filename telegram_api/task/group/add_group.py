@@ -58,13 +58,12 @@ async def addGroupAction(client):
                                 print('加群成功')
                                 # 将群信息写入加群成功的记录表
                                 # insertDb(item,False,update.users[0].phone)
-                except ValueError:
-                    pass
-                except AttributeError:
-                    pass
                 except Exception as e:
                     print(e)
-                    await asyncio.sleep(e.seconds)
+                    if hasattr(e,'seconds'):
+                        await asyncio.sleep(e.seconds)
+                    else:
+                        pass
                 else:
                     # 循环间隔2-3分钟 以应对电报api请求频繁的限制
                     seconds = random.randint(100,300)
