@@ -60,6 +60,8 @@ async def addGroupAction(client):
                                 # insertDb(item,False,update.users[0].phone)
                 except ValueError:
                     pass
+                except AttributeError:
+                    pass
                 except Exception as e:
                     print(e)
                     await asyncio.sleep(e.seconds)
