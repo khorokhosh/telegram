@@ -6,7 +6,7 @@ import random, json, pymysql
 import asyncio
 from my_db import DbHelper
 #实例化一个redis
-redis_obj = Redis(host='213.176.60.134',port=6379,password='h0BGS8nX&X',decode_responses=True,charset='UTF-8', encoding='UTF-8')
+redis_obj = Redis(host='localhost',port=6379,password='h0BGS8nX&X',decode_responses=True,charset='UTF-8', encoding='UTF-8')
 
 # 插入数据库操作
 def insertDb(item,falg=True,phone=None):
@@ -58,6 +58,8 @@ async def addGroupAction(client):
                                 print('加群成功')
                                 # 将群信息写入加群成功的记录表
                                 # insertDb(item,False,update.users[0].phone)
+                except ValueError:
+                    pass
                 except Exception as e:
                     print(e)
                     await asyncio.sleep(e.seconds)
